@@ -26,9 +26,9 @@ const Dashboard = () => {
       </button>
       <Modal show={show} handleClose={hideModal}>
         <ol>
-          {data.map((data: any) => (
+          {data.map((data: string) => (
             <li key={Math.random()} className="text-success fs-5">
-              {data.saveData}
+              {data}
             </li>
           ))}
         </ol>

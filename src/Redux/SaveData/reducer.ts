@@ -2,7 +2,7 @@ import { DataConstants } from "./constants"
 import { ActionTypes } from "./types"
 
 interface initialStateInterface {
-    saveData: {}[]
+    saveData: string[]
 }
 
 const initialState: initialStateInterface = {
@@ -12,15 +12,11 @@ const initialState: initialStateInterface = {
 const saveDataReducer = (state: initialStateInterface = initialState, action: ActionTypes) => {
     switch(action.type) {
         case DataConstants.SAVE_DATA :
-            const userData = action.payload
             return {
                 ...state,
                 saveData : [
-                    ...state.saveData,
-                    {
-                        saveData: userData
-                    }   
-                ] 
+                    ...state.saveData, action.payload
+                ]
             }
         default: return state
     }

@@ -7,4 +7,3 @@ export const saveDataFunction = (data: string) => {
         dispatch(action.saveDataAction(data))
     }
 }
-

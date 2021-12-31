@@ -4,6 +4,7 @@ import UserProfile from "../Components/UserComponents/UserProfile";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "../Components/Header/Header";
 import Footer from "../Components/Footer/Footer";
+import UserLists from "../Components/UserComponents/UserLists";
 
 const PrivateRoute = () => {
   return (
@@ -12,6 +13,7 @@ const PrivateRoute = () => {
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/user_profile" element={<UserProfile />} />
+        <Route path="/users_list" element={<UserLists />} />
       </Routes>
       <Footer />
     </BrowserRouter>

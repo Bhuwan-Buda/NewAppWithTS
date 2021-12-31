@@ -41,6 +41,11 @@ const Header = () => {
                   Profile
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link to="/users_list" className="nav-link active">
+                  UserList
+                </Link>
+              </li>
             </ul>
             <React.Fragment>
               <input
@@ -56,7 +61,7 @@ const Header = () => {
                 className="btn btn-outline-success"
                 title="save data"
                 type="button"
-                onClick={() => {
+                onClick={(event: React.MouseEvent<HTMLElement>) => {
                   if (data.length === 0) {
                     alert("Please enter some data!!!");
                     return;
