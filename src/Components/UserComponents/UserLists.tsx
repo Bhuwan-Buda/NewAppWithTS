@@ -12,11 +12,9 @@ const UserLists = () => {
   const dispatch = useDispatch();
   const userList = useSelector((state: State) => state.user.userList);
   const loading = useSelector((state: State) => state.user.loading);
-  console.log("load2");
 
   useEffect(() => {
     dispatch(getUserList());
-    console.log("load1");
   }, [dispatch]);
 
   return (

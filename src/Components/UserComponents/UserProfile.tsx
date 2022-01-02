@@ -1,15 +1,24 @@
 import { useLocation } from "react-router";
 import "./style.css";
+import male from '../../Assets/male.png'
+import female from '../../Assets/female.png'
 
 const UserProfile = () => {
+  
   const location = useLocation();
   const user: any = location.state;
+  let image;
+  if (user.id % 2 !== 0) {
+    image=male
+  } else {
+    image=female
+  }
 
   return (
     <div className="container userList d-flex justify-content-center">
       <div className="card">
         <img
-          src="https://i.imgur.com/wvxPV9S.png"
+          src={image}
           className="card-img-top"
           alt="picture"
         />
