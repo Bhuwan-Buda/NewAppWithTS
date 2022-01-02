@@ -25,12 +25,13 @@ const UserLists = () => {
         <div className="row">
           {userList.map((user: user) => (
             <div className="col-4" key={user.id}>
-              <div className="card m-3">
+              <div className="card m-3 p-2">
                 <img src={userImage} className="card-img-top" alt="picture" />
                 <div className="card-body">
                   <h4 className="card-title text-center text-success">
                     {user.name}
                   </h4>
+                  <h6 className="text-danger text-center">{user.address.city}</h6>
                 </div>
                 <Link
                   to={`/users_list/${user.id}`}

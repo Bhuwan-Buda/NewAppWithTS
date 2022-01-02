@@ -3,6 +3,9 @@ import { UserListConstants } from "./constants";
 export interface user {
     id: number
     name: string
+    address: {
+        city: string
+    }
 }
 
 interface getUserListSuccess {

@@ -4,7 +4,7 @@ import male from '../../Assets/male.png'
 import female from '../../Assets/female.png'
 
 const UserProfile = () => {
-  
+
   const location = useLocation();
   const user: any = location.state;
   let image;
@@ -16,7 +16,7 @@ const UserProfile = () => {
 
   return (
     <div className="container userList d-flex justify-content-center">
-      <div className="card">
+      <div className="card p-2">
         <img
           src={image}
           className="card-img-top"
