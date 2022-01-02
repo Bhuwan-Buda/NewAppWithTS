@@ -1,4 +1,4 @@
-import "./modal.css";
+import "./style.css";
 
 type modalProps = {
   handleClose: any;

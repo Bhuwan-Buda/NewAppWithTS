@@ -12,8 +12,8 @@ const PrivateRoute = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/user_profile" element={<UserProfile />} />
         <Route path="/users_list" element={<UserLists />} />
+        <Route path="/users_list/:userId" element={<UserProfile />} />
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -1,55 +1,56 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserList } from "../../Redux/UsersList/thunk";
 import { State } from "../../Redux";
 import { user } from "../../Redux/UsersList/types";
-import "./userprofile.css";
+import "./style.css";
+import { Link } from "react-router-dom";
+import loadingImage from '../../Assets/loading.gif'
+import userImage from '../../Assets/user.png'
 
 const UserLists = () => {
+  console.log("Userlist page loaded.");
   const dispatch = useDispatch();
   const userList = useSelector((state: State) => state.user.userList);
   const loading = useSelector((state: State) => state.user.loading);
-  console.log(userList);
+  console.log("load2");
 
   useEffect(() => {
     dispatch(getUserList());
+    console.log("load1");
   }, [dispatch]);
 
   return (
-    <div className="container userList d-flex justify-content-center mt-3">
+    <div className="container userList d-flex justify-content-center ">
+      {loading ? (
+        <div className="row">
+          <img src={loadingImage} alt="image" />
+        </div>
+      ) : (
         <div className="row">
           {userList.map((user: user) => (
-            <div className="col-4">
+            <div className="col-4" key={user.id}>
               <div className="card m-3">
                 <img
-                  src="https://i.imgur.com/wvxPV9S.png"
+                  src={userImage}
                   className="card-img-top"
                   alt="picture"
                 />
                 <div className="card-body">
-                  <h4 className="card-title text-success">{user.name}</h4>
+                  <h4 className="card-title text-center text-success">{user.name}</h4>
                 </div>
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item">
-                    <b className="text-danger">Address:</b> {user.address.city}
-                  </li>
-                  <li className="list-group-item">
-                    <b className="text-danger">Company:</b> {user.company.name}
-                  </li>
-                  <li className="list-group-item">
-                    <b className="text-danger">Contact:</b> {user.phone}
-                  </li>
-                  <li className="list-group-item">
-                    <b className="text-danger">Email:</b> {user.email}
-                  </li>
-                  <li className="list-group-item">
-                    <b className="text-danger">Website:</b> {user.website}
-                  </li>
-                </ul>
+                <Link
+                  to={`/users_list/${user.id}`}
+                  state={user}
+                  className="btn btn-success btn-sm"
+                >
+                  View
+                </Link>
               </div>
             </div>
           ))}
         </div>
+      )}
     </div>
   );
 };

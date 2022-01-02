@@ -34,7 +34,6 @@ const Login: React.FC<{}> = () => {
       initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={(values, onSubmitProps) => {
-        console.log(values);
         dispatch(authenticateFunction());
         onSubmitProps.setSubmitting(false);
         onSubmitProps.resetForm();
