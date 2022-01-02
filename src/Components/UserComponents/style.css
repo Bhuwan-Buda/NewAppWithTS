@@ -16,7 +16,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: left;
-  padding: 10px;
+  padding: 15px;
   box-sizing: border-box;
   box-shadow: 2px 3px 4px #000;
 }
@@ -124,6 +124,37 @@ hr .new1 {
 }
 
 .dashboard {
+  position: relative;
+  top: 60px;
+}
+
+.spin {
+    width: 100%;
+    height: 100%;
     position: relative;
-    top: 60px;
+    top: 250px;
+    left: 45%;
+}
+@keyframes spinner {
+  0% {
+    transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
+}
+.spin::before {
+  animation: 1.5s linear infinite spinner;
+  animation-play-state: inherit;
+  border: solid 10px #cfd0d1;
+  border-bottom-color: #e40202;
+  border-radius: 50%;
+  content: "";
+  height: 300px;
+  width: 300px;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  transform: translate3d(-50%, -50%, 0);
+  will-change: transform;
 }
